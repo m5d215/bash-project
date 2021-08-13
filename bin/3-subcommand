@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -Ceuo pipefail
+
+ROOT_DIR=$(cd -- "${0%/*}/.." && pwd)
+LIB_DIR=$ROOT_DIR/lib/PROJECT_NAME
+LIBEXEC_DIR=$ROOT_DIR/libexec/PROJECT_NAME
+export ROOT_DIR LIB_DIR LIBEXEC_DIR
+
+exec "$LIBEXEC_DIR/3-subcommand-$1.sh" "${@:2}"
